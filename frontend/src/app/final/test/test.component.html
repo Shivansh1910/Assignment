@@ -1,0 +1,70 @@
+<p>test works!</p>
+<br>
+<div class="container">
+    <input type="file" (change)="onFileSelected($event)">
+    <br>
+    <br>
+    <input class="form-control" (change)="onNameChanged($event)" placeholder="Name of the Certificate" type="text" />
+    <br>
+    <input class="form-control" (change)="onXSelected($event)" placeholder="x" type="text" />
+    <br>
+    <input class="form-control" (change)="onYSelected($event)" placeholder="y" type="text" />
+    <br>
+    <!-- <input class="form-control" (change)="onDisSelected($event)" placeholder="is_discription" type="text" /> -->
+    <p>is_discription</p>
+    <!-- <div class="form-group row">
+        <div class="form-check form-check-radio">
+            <label class="form-check-label">
+                <input class="form-check-input" id="is_discription" name="is_discription" type="radio"
+                    (change)="onDisSelected($event)" value="False" />
+
+                <span class="form-check-sign"> </span> Radio is off
+            </label>
+        </div>
+
+        <div class="form-check form-check-radio">
+            <label class="form-check-label">
+                <input checked="checked" class="form-check-input" id="is_discription" name="is_discription" type="radio"
+                    (change)="onDisSelected($event)" value="True" />
+
+                <span class="form-check-sign"> </span> Radio is on
+            </label>
+        </div>
+    </div> -->
+    <!-- <input class="form-control" (change)="onDiscSelected($event)" placeholder="discription" type="text" /> -->
+    <div class="form-group">
+        <!-- <label for="subscriptionType">Manager</label>
+    <select class="form-control" (change)="onDiscSelected($event)">
+        <option *ngFor="let friend of name" value="{{friend.name}}">{{friend.name}}</option>
+    </select>
+</div> -->
+
+        <button type="button" (click)="onUpload()">upload</button>
+    </div>
+    <br>
+    <br>
+
+    <h1>new</h1>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let friend of name">
+                    <td><span>{{friend.name}}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-info">
+                            <i class="fa fa-search"></i>Details
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>

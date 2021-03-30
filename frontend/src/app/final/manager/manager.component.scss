@@ -1,0 +1,25 @@
+.zoom:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.1);
+}
+
+.wrappers {
+    max-height: 150px;
+    border: 1px solid #ccc;
+    display: flex;
+    overflow-y: auto;
+}
+
+.wrappers::-webkit-scrollbar {
+    width: 0;
+}
+
+.wrappers .itema {
+    min-width: 110px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    background-color: #fff;
+    margin-right: 2px;
+}
