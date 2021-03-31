@@ -326,15 +326,65 @@ def userupt(request):
 class SampleView(APIView):
     parser_class = (FileUploadParser,)
 
+    # def post(self, request, *args, **kwargs):
+
+    #     file_serializer = serializers.SampleSerializer(data=request.data)
+
+    #     if file_serializer.is_valid():
+    #         file_serializer.save()
+    #         return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+    #     else:
+    #         return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def post(self, request, *args, **kwargs):
+        # reqdata = request.data
 
-        file_serializer = serializers.SampleSerializer(data=request.data)
+        # old = Sample.objects.all().filter(
+        #     certificate_name=reqdata['certificate_name'])
+        # if old.certificate_name == reqdata['certificate_name']:
+        # if True:
 
-        if file_serializer.is_valid():
+        #     samp = Sample.objects.get_or_create(
+        #         certificate_name=reqdata['certificate_name'])
+        #     samp.x = reqdata['x']
+
+        #     samp.y = reqdata['y']
+
+        #     samp.begin = reqdata['begin']
+        #     samp.discription = reqdata['discription']
+        #     samp.discription1 = reqdata['discription1']
+        #     samp.discription2 = reqdata['discription2']
+
+        #     samp.is_discription = reqdata['is_discription']
+
+        #     samp.file = reqdata['file']
+        #     # return Response({'status': 'success'})
+        #     samp.save()
+        #     file_serializer = serializers.SampleSerializer(samp)
+        #     return Response({
+        #         'user': file_serializer.data,
+        #     })
+        # else:
+        try:
+            file_serializer = Sample.objects.get(
+                certificate_name=request.data['certificate_name'])
+            file_serializer.x = request.data['x']
+            file_serializer.y = request.data['y']
+            file_serializer.begin = request.data['begin']
+            file_serializer.discription = request.data['discription']
+            file_serializer.discription1 = request.data['discription1']
+            file_serializer.discription2 = request.data['discription2']
             file_serializer.save()
-            return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            new = serializers.SampleSerializer(file_serializer)
+            return Response(new.data)
+
+        except ObjectDoesNotExist:
+            file_serializer = serializers.SampleSerializer(data=request.data)
+            if file_serializer.is_valid():
+                file_serializer.save()
+                return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # def post(self, request, *args, **kwargs):
     #     reqdata = request.data
