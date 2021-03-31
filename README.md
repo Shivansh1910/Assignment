@@ -11,7 +11,7 @@ manager login- http://localhost:4200/#/regm this link can be closed once all man
 Common Login Page for both and as per their features redirected to candidate page or manager page
 
 Manager has ability to add/ modify candidate's name and certificates. Also manager can add certificate of any event. 
-Certificate can be empty as well as written text but be in jpg. this can be extented to image format as well.
+Certificate can be empty as well as written text but be in jpg and it should have 1 word or saprated by _ like eureka or eureka_jr not eureka jr. this can be extented to image and other format as well if required.
 
 All Templates uploaded will be saved in media/sample dir of backend with the name of event.jpg
 
